@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>fullpage</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/fullpage.css">
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/jquery.fullpage.js"></script>
+	<style>
+		body{font: 14px Nanum-Gothic, "나눔고딕", sans-serif;}
+		#fullpage{width: 100%; height: 100%;}
+		#page1{background-image: url(images/bg1.jpg);}
+		#page2{background-image: url(images/bg2.jpg);}
+		#page3{background-image: url(images/bg3.jpg);}
+		#page4{background-image: url(images/bg4.jpg);}
+		.pages{width: 100%; height: 100%; background-repeat: no-repeat; background-position: center top; -ms-background-size: cover;
+		background-size: cover;}
+		#wrap{position: relative;}
+		#wrap > h1{position: absolute; top: 17px; left: 50px; z-index: 2;}
+		#navTop{position: fixed; height: 90px; background:rgba(000, 000, 000, .5); width: 100%;z-index: 1;}
+		#navTop>ul#topMenu{margin-left: 200px;}
+		#navTop>ul#topMenu:after{content:""; display: block; clear: both;}
+		#navTop>ul#topMenu>li{float: left;}
+		#navTop>ul#topMenu>li>a{display: block; line-height: 87px; text-align: center; padding: 0 50px; color:#fff; font-size: 18px;}
+		#navTop>ul#topMenu>li.active{border-bottom: 3px solid #ef8321;}
+		#navTop>ul#topMenu>li.active>a{color:#ef8321;}
+		ul#rightMenu{float: right;}
+		ul#rightMenu:after{content:""; display: block; clear: both;}
+		ul#rightMenu>li{float: left; color:#fff;}
+		ul#rightMenu>li>a{display: block; line-height: 87px; color:#000; font-size: 18px; padding-right: 30px;}
+		/*#navTop>ul#topMenu>li>a:hover, #navTop>ul#topMenu>li>a:focus{color:#ef8321; border-bottom: 3px solid #ef8321;}*/
+
+		/*ul#subMenu{position: absolute; top: 110px; z-index: 2; width: 100%; display: none;}
+		ul#subMenu>li{width: 100%;}
+		ul#subMenu>li>a{display: block; color:#fff; line-height: 30px;}
+		ul#subMenu>li>a:hover, ul#subMenu>li>a:focus{color:#16c1f3;}
+		#gnb-menu-open{width: 100%; height: 320px; background:rgba(000, 000, 000, .5); z-index: 1; position: absolute; top: 90px; display: none;}*/
+
+		.main_cmt{width: 400px; margin-left: 100px;}
+		.main_cmt p{text-shadow: 1px 1px 1px #292929; color:#fff; font-weight: bold;}
+		.main_cmt p:nth-child(1){font-size: 3em; margin-bottom: 5px}
+		.main_cmt p:nth-child(2){font-size: 1.78em;}
+		.main_cmt a{display: block; text-align: center; width: 150px; border: 1px solid #fff; background: none; color: #fff;
+		-ms-border-radius: 10px;
+		border-radius: 10px; margin-top: 30px; line-height: 45px; transition: .3s;}
+		.main_cmt a:hover{background: #fff; color:#000;}
+
+		#page1 div.onview{opacity: 1; transition:.3s;}
+		#page1 div.onview.mactive{opacity: 0; transform:translateX(-100px);}
+
+		#page2 div.onview{opacity: 0; transition:.3s;}
+		#page2 div.onview.mactive{opacity: 1; transform:translateX(100px);}
+
+		#page3 div.onview{opacity: 0; transition:.3s;}
+		#page3 div.onview.mactive{opacity: 1; transform:translateX(100px);}
+
+		#fp-nav{right: 0;}
+		#fp-nav ul li a span, .fp-slidesNav ul li a span{background:#fff;}
+	</style>
+	<script>
+		$(document).ready(function(){
+
+			$("#fullpage").fullpage({
+				anchor:["1st", "2st", "3st", "4st"],
+				menu:"#topMenu",
+				navigation:true,
+				'afterLoad':function(anchorsLink,index){
+					console.log(index);
+					if(index == 2){
+						$(".onview").addClass("mactive")
+					}else{
+						$(".onview").removeClass("mactive")
+					}
+				}
+			})
+
+			// 	$("#topMenu").hover(function(){
+			// 	$("#subMenu").stop().slideDown();
+			// 	$("#gnb-menu-open").stop().slideDown();
+			// },function(){
+			// 	$("#subMenu").hide();
+			// 	$("#gnb-menu-open").hide();
+			// });
+
+		});
+	</script>
+ </head>
+ <body>
+<div id="wrap">
+	<h1><a href="index.html"><img src="images/common/h_logo.png" alt="제주관광공사"></a></h1>
+			<ul id="rightMenu">
+				<li><a href="#">여행필수정보</a></li>
+				<li><a href="#">제주여행추천</a></li>
+			</ul>
+			<nav id="navTop">
+				<ul id="topMenu">
+					<li data-menuanchor="1st"><a href="#1st">관광지</a></li>
+					<li data-menuanchor="2st"><a href="#2st">음식점</a></li>
+					<li data-menuanchor="3st"><a href="#3st">숙박</a></li>
+					<li data-menuanchor="4st"><a href="#4st">쇼핑</a></li>
+				</ul>
+			</nav>
+			<!-- <div id="fullpage">
+				<div class="section pages" id="page1" data-anchor="1st">
+					<div class="main_cmt">
+						<div class="onview">
+							<p>어디를 가볼까?</p>
+							<p>한눈에 보는 제주도 여행지</p>
+							<a href="#">more</a>
+						</div>
+					</div>
+				</div>
+				<div class="section pages" id="page2" data-anchor="2st">
+					<div class="main_cmt">
+						<div class="onview">
+							<p>무엇을 먹을까?</p>
+							<p>Lorem ipsum dolor sit.</p>
+							<a href="#">more</a>
+						</div>
+					</div>
+				</div>
+				<div class="section pages" id="page3" data-anchor="3st">
+					<div class="main_cmt">
+						<div class="onview">
+							<p>어디서 잘까?</p>
+							<p>Lorem ipsum dolor sit.</p>
+							<a href="#">more</a>
+						</div>
+					</div>
+				</div>
+				<div class="section pages" id="page4" data-anchor="4st">
+					<div class="slide">
+						<div class="main_cmt">
+							<p>무엇을 살까?</p>
+							<p>Lorem ipsum dolor sit.</p>
+							<a href="#">more</a>
+						</div>
+					</div>
+					<div class="slide">
+						<div class="main_cmt">
+							<p>Lorem ipsum.</p>
+							<p>Lorem ipsum dolor sit.</p>
+							<a href="#">more</a>
+						</div>
+					</div>
+					<div class="slide">
+						<div class="main_cmt">
+							<p>Lorem ipsum.</p>
+							<p>Lorem ipsum dolor sit.</p>
+							<a href="#">more</a>
+						</div>
+					</div>
+				</div>
+			</div> -->
+</div>
+ </body>
+</html>
