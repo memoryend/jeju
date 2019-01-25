@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+/*sub1*/
+#navBottom{position: fixed; top: 90px; width: 100%; height: 50px;  background: #000;}
+ul#subMenu{width: 100%; padding-left: 200px;}
+ul#subMenu li{float: left;}
+ul#subMenu li a{display: block; color: #fff; text-align: center; padding: 0 50px; line-height: 48px;}
+ul#subMenu li a:hover{color:#ef8321;}
+#wrap>p.sub_bg_01{height: 1080px;background: url(../images/visual_hub.jpg) 0 0 no-repeat;}
+
+.sub-visual{position: relative;}
+.sub-visual>.sub-text{position: absolute; top: 50%; left: 30%; text-align: center; color:#fff;}
+
+.section{width: 100%; height: 940px; background-color: #fff; _position: absolute; top: 140px;}
+.section>.banner-wrap>ul{width: 1200px; margin: 0 auto;}
+.section>.banner-wrap>ul:after{content:"";display: block; clear: both;}
+.section>.banner-wrap>ul li{float: left; padding: 50px 18px;}
+.card{border: 1px solid #000;}
+.card-body{height: 83px; text-align: center; color:#333; background-color: #fff;}
+h3.card-title{font-size: 16px; font-weight: bold; padding: 15px 0;}
+p.card-text{font-size: 14px;}
